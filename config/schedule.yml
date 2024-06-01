@@ -1,0 +1,8 @@
+daily_record_job:
+  cron: "58 23 * * *"
+  class: "DailyRecordJob"
+
+capture_users_job:
+  cron: "0 */1 * * *"
+  class: "CaptureUsersJob"
+
