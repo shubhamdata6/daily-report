@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>Users</h1>
+  <p>Total Users: <%= @total_users %></p>
+
+  <!-- Daily Record Report Link -->
+  <p><%= link_to 'View Daily Record Report', daily_records_path, class: 'btn btn-primary' %></p>
+
+  <!-- Search Form -->
+  <p>
+    <%= form_with url: users_path, method: :get, local: true do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search users by name..." %>
+      <%= submit_tag "Search" %>
+    <% end %>
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.age %></td>
+          <td><%= user.gender %></td>
+          <td><%= user.created_at %></td>
+          <td>
+            <%= button_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?', rel: 'nofollow' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <!-- Pagination Links -->
+  <div class="pagination">
+    <%= paginate @users %>
+  </div>
+</div>
