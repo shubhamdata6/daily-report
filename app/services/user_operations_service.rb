@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/services/user_operations_service.rb
 class UserOperationsService
   attr_accessor :identifier, :name, :age, :gender, :location
@@ -22,16 +24,15 @@ class UserOperationsService
 
   def create_or_update_user
     @user.update(
-        name: name,
-        age: age,
-        gender: gender,
-        location: location
-      )
+      name:,
+      age:,
+      gender:,
+      location:
+    )
   end
 
   def set_count_to_redis
-    $redis.set("male_count", User.male.count)
-    $redis.set("female_count", User.female.count)
+    $redis.set('male_count', User.male.count)
+    $redis.set('female_count', User.female.count)
   end
 end
-

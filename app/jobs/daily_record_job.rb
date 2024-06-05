@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# DailyRecordJob
 class DailyRecordJob < ApplicationJob
   queue_as :default
 

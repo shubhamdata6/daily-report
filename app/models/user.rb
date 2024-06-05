@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# User model
 class User < ApplicationRecord
   enum :gender, { male: 'male', female: 'female' }
 

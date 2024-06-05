@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# Daily Record Model
 class DailyRecord < ApplicationRecord
-include ActiveModel::Dirty
+  include ActiveModel::Dirty
 
   # Define the attributes you want to track
   # define_attribute_methods :male_count, :female_count

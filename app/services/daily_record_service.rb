@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # app/services/daily_report_service.rb
 class DailyRecordService
   attr_accessor :male_count, :female_count
 
   def initialize
-    @male_count = $redis.get("male_count").to_i
-    @female_count = $redis.get("female_count").to_i
+    @male_count = $redis.get('male_count').to_i
+    @female_count = $redis.get('female_count').to_i
   end
 
   def process
@@ -18,9 +20,8 @@ class DailyRecordService
 
   def update_daily_record
     @daily_record.update(
-      male_count: ,
+      male_count:,
       female_count:
     )
   end
 end
-

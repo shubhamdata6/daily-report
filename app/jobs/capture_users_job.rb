@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Job to fetch users from 'https://randomuser.me/api/?results=20'
 class CaptureUsersJob < ApplicationJob
   queue_as :default
 
@@ -13,4 +16,3 @@ class CaptureUsersJob < ApplicationJob
     @users = JSON.parse(response.body)['results']
   end
 end
-
